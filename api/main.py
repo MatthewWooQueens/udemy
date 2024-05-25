@@ -8,6 +8,7 @@ request = requests.get(url)
 content = request.json()
 msg = ""
 for article in content["articles"]:
-    msg = ''.join((msg, f'{article["title"]}\n{article["description"]}\n',))
-msg = u''.join(msg).encode('utf-8').strip()
+    msg = ''.join((msg, f'{article["title"]}\n{article["description"]}\n\n',))
+#msg = u''.join(msg).encode('utf-8').strip()
+msg = msg.encode('utf-8')
 send_email(msg)
